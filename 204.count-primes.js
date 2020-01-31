@@ -5,6 +5,7 @@ const assert = require('assert');
  * @return {number}
  */
 var countPrimes = function(n) {
+  if (n < 2) return 0;
   const notPrimeNumber = [];
   const max = Math.sqrt(n);
 
