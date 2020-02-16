@@ -15,7 +15,8 @@ class Solution:
     tail = head
     queue = []
     for index, lst in enumerate(lists):
-      heapq.heappush(queue, (lst.val, index))
+      if (lst is not None):
+        heapq.heappush(queue, (lst.val, index))
 
     while(len(queue)):
       index = heapq.heappop(queue)[1]
