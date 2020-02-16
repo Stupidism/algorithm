@@ -113,6 +113,8 @@ class LFUCache:
       return
     
     if(self.size == self.capacity):
+      if (self.capacity == 0):
+        return
       tailNodeList = self.tail.prev
       self.removeNode(tailNodeList.tail.prev)
     
