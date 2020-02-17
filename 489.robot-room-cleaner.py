@@ -30,16 +30,12 @@
 #        :rtype void
 #        """
 
-directions = [(0, -1), (1, 0), (0, 1), (-1, 0)]
-
-unknown = -1
-blocked = 0
-visited = 1
 
 class Solution:
   def cleanRoom(self, robot):
     self.robot = robot
     visited = set()
+    directions = [(0, -1), (1, 0), (0, 1), (-1, 0)]
 
     def dfs(i, j, curDirIndex):
       robot.clean()
