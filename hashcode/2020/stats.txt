@@ -1,0 +1,123 @@
+
+bookNumByCount [
+  0,
+  3,
+  3
+]
+stats {
+  "D": 7,
+  "L": 2,
+  "avgInitTime": 2.5,
+  "expectLibs": 2,
+  "maxInitTime": 3,
+  "minInitTime": 2
+}
+totalScore 36
+bookNumByCount [
+  0,
+  100000
+]
+stats {
+  "D": 1000,
+  "L": 100,
+  "avgInitTime": 11.81,
+  "expectLibs": 84,
+  "maxInitTime": 20,
+  "minInitTime": 1
+}
+totalScore 5931900
+bookNumByCount [
+  22340,
+  33392,
+  25088,
+  12571,
+  4650,
+  1492,
+  354,
+  94,
+  12,
+  7
+]
+stats {
+  "D": 100000,
+  "L": 10000,
+  "avgInitTime": 506.0797,
+  "expectLibs": 197,
+  "maxInitTime": 1000,
+  "minInitTime": 10
+}
+totalScore 1620528
+bookNumByCount [
+  0,
+  0,
+  15000,
+  63600
+]
+stats {
+  "D": 30001,
+  "L": 30000,
+  "avgInitTime": 2.0,
+  "expectLibs": 15000,
+  "maxInitTime": 2,
+  "minInitTime": 2
+}
+totalScore 7177820
+bookNumByCount [
+  736,
+  3624,
+  8757,
+  14447,
+  17800,
+  17681,
+  14194,
+  10345,
+  6248,
+  3334,
+  1637,
+  708,
+  307,
+  126,
+  37,
+  15,
+  3,
+  0,
+  1
+]
+stats {
+  "D": 200,
+  "L": 1000,
+  "avgInitTime": 5.432,
+  "expectLibs": 36,
+  "maxInitTime": 10,
+  "minInitTime": 1
+}
+totalScore 70584
+bookNumByCount [
+  575,
+  3159,
+  7948,
+  13458,
+  17186,
+  17601,
+  14958,
+  10976,
+  6809,
+  3786,
+  1935,
+  981,
+  390,
+  158,
+  51,
+  17,
+  10,
+  2
+]
+stats {
+  "D": 700,
+  "L": 1000,
+  "avgInitTime": 166.192,
+  "expectLibs": 4,
+  "maxInitTime": 300,
+  "minInitTime": 30
+}
+totalScore 1872063
