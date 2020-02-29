@@ -4,6 +4,7 @@ Clone repo and run below commands:
 node interviews/alipay/2.ordered-link-list/2.ordered-link-list.js
 node interviews/alipay/2.ordered-link-list/2.ordered-link-list.js
 node interviews/alipay/3.createTreeFromFlatData.js
+node interviews/alipay/4.dominoes.js
 ```
 
 
