@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
 
 const validResults = ['win', 'draw', 'loss'];
 
@@ -69,11 +68,11 @@ const main = () => {
       result
     }));
 
-  console.log('matches', matches);
+  // console.log('matches', matches);
 
   const teams = tally(matches);
 
-  console.log('teams', teams);
+  // console.log('teams', teams);
 
   const maxLengths = [4,2,1,1,1,1];
 
@@ -86,7 +85,7 @@ const main = () => {
       return parts;
     }
   ));
-  console.log('res', maxLengths, res);
+  // console.log('res', maxLengths, res);
 
   const formatLine = ([name, ...rest]) => [
       name.padEnd(maxLengths[0], ' '),
