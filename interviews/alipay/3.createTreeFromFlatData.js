@@ -32,7 +32,11 @@ const createTreeFromFlatData = (nodes) => {
     parent.children.push(treeNode);
   }
 
-  return root;
+  if (root.children.length !== 1) {
+    return null;
+  }
+
+  return root.children[0];
 }
 
 console.log(createTreeFromFlatData([
