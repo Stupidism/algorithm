@@ -13,6 +13,7 @@ type RangeType = [number, number];
 class RangeNode {
   low: number;
   high: number;
+
   level: number;
 
   next: RangeNode[];
@@ -102,10 +103,11 @@ class RangeList {
 
     if (low > lowNodes[0].high) {
       const newLevel = getRandomLevel();
+      console.log('high: ', high, highNodes[0]);
       const newNode = new RangeNode([low, Math.max(high, highNodes[0].high)], newLevel);
       this.addNode(newNode, lowNodes);
     } else if (high > lowNodes[0].high) {
-      lowNodes[0].high = high;
+      lowNodes[0].high = Math.max(high, highNodes[0].high);
     }
   }
 
@@ -160,110 +162,122 @@ beginning and end of range.
 
 // Example run
 const rl = new RangeList();
-rl.add([1, 5]);
-rl.print();
-// Should display: [1, 5)
-rl.add([15, 17]);
-rl.print();
-// Should display: [1, 5) [15, 17)
-rl.add([13, 16]);
-rl.print();
-// Should display: [1, 5) [13, 17]
-rl.add([10, 11]);
-rl.print();
-// Should display: [1, 5) [10, 11) [13, 17]
-rl.add([11, 20]);
-rl.print();
-// Should display: [1, 5) [10, 20)
-rl.add([20, 20]);
-rl.print();
-// Should display: [1, 5) [10, 20)
-rl.add([20, 21]);
-rl.print();
-// Should display: [1, 5) [10, 21)
-rl.add([2, 4]);
-rl.print();
-// Should display: [1, 5) [10, 21)
-rl.add([3, 8]);
-rl.print();
-// Should display: [1, 8) [10, 21)
+
+[[35, 40],
+[25, 30],
+[45, 50],
+[55, 60],
+[5, 10],
+[15, 20],
+[16, 47],].forEach(range => {
+  rl.add(range as RangeType);
+  rl.print();
+})
+
+// rl.add([1, 5]);
+// rl.print();
+// // Should display: [1, 5)
+// rl.add([15, 17]);
+// rl.print();
+// // Should display: [1, 5) [15, 17)
+// rl.add([13, 16]);
+// rl.print();
+// // Should display: [1, 5) [13, 17]
+// rl.add([10, 11]);
+// rl.print();
+// // Should display: [1, 5) [10, 11) [13, 17]
+// rl.add([11, 20]);
+// rl.print();
+// // Should display: [1, 5) [10, 20)
+// rl.add([20, 20]);
+// rl.print();
+// // Should display: [1, 5) [10, 20)
+// rl.add([20, 21]);
+// rl.print();
+// // Should display: [1, 5) [10, 21)
+// rl.add([2, 4]);
+// rl.print();
+// // Should display: [1, 5) [10, 21)
+// rl.add([3, 8]);
+// rl.print();
+// // Should display: [1, 8) [10, 21)
 
 
-rl.remove([10, 10]);
-rl.print();
-// Should display: [1, 8) [10, 21)
-rl.remove([10, 11]);
-rl.print();
-// Should display: [1, 8) [11, 21)
-rl.remove([15, 17]);
-rl.print();
-// Should display: [1, 8) [11, 15) [17, 21)
-rl.remove([3, 19]);
-rl.print();
-// Should display: [1, 3) [19, 21)
+// rl.remove([10, 10]);
+// rl.print();
+// // Should display: [1, 8) [10, 21)
+// rl.remove([10, 11]);
+// rl.print();
+// // Should display: [1, 8) [11, 21)
+// rl.remove([15, 17]);
+// rl.print();
+// // Should display: [1, 8) [11, 15) [17, 21)
+// rl.remove([3, 19]);
+// rl.print();
+// // Should display: [1, 3) [19, 21)
 
 
-rl.add([5, 7]);
-rl.print();
-// Should display: [1, 3) [5, 7] [19, 21)
+// rl.add([5, 7]);
+// rl.print();
+// // Should display: [1, 3) [5, 7] [19, 21)
 
 
-rl.add([4, 8]);
-rl.print();
-// Should display: [1, 3) [4, 8] [19, 21)
+// rl.add([4, 8]);
+// rl.print();
+// // Should display: [1, 3) [4, 8] [19, 21)
 
 
-rl.add([9, 10]);
-rl.print();
-// Should display: [1, 3) [4, 8) [19, 21)
+// rl.add([9, 10]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [19, 21)
 
 
-rl.add([10, 11]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 10) [19, 21)
+// rl.add([10, 11]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 10) [19, 21)
 
 
-rl.add([13, 14]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [19, 21)
+// rl.add([13, 14]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [19, 21)
 
 
-rl.add([16, 18]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21)
+// rl.add([16, 18]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21)
 
-rl.add([25, 31]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [32, 64)
+// rl.add([25, 31]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [32, 64)
 
-rl.add([32, 64]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64)
+// rl.add([32, 64]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64)
 
-rl.add([100, 111]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [100, 111)
+// rl.add([100, 111]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [100, 111)
 
-rl.add([88, 99]);
-rl.print();
-// Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
+// rl.add([88, 99]);
+// rl.print();
+// // Should display: [1, 3) [4, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
 
-rl.remove([4, 5]);
-rl.print();
-// Should display: [1, 3) [5, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
+// rl.remove([4, 5]);
+// rl.print();
+// // Should display: [1, 3) [5, 8) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
 
-rl.remove([7, 8]);
-rl.print();
-// Should display: [1, 3) [5, 7) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
+// rl.remove([7, 8]);
+// rl.print();
+// // Should display: [1, 3) [5, 7) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
 
-rl.remove([7, 9]);
-rl.print();
-// Should display: [1, 3) [5, 7) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
+// rl.remove([7, 9]);
+// rl.print();
+// // Should display: [1, 3) [5, 7) [9, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
 
-rl.remove([6, 10]);
-rl.print();
-// Should display: [1, 3) [5, 6) [10, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
+// rl.remove([6, 10]);
+// rl.print();
+// // Should display: [1, 3) [5, 6) [10, 11) [13, 14) [16, 18) [19, 21) [25, 31) [32, 64) [88, 99) [100, 111)
 
-rl.remove([5, 29]);
-rl.print();
-// Should display: [1, 3) [29, 31) [32, 64) [88, 99) [100, 111)
+// rl.remove([5, 29]);
+// rl.print();
+// // Should display: [1, 3) [29, 31) [32, 64) [88, 99) [100, 111)
